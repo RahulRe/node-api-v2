@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 const MONGO_URL = process.env.MONGO_URL;
+const PORT = process.env.PORT
 
 const app = express();
 
@@ -27,7 +28,7 @@ app.get("/",(req,res)=>{
 mongoose.connect(MONGO_URL)
 .then(()=>{
     console.log('connected to mongodb');
-    app.listen(3000,()=>{
+    app.listen(PORT,()=>{
         console.log("running on port 3000")
     })
 })
